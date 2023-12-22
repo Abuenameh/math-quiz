@@ -7,7 +7,7 @@ import {ComputeEngine} from "@/cortex-js/compute-engine/compute-engine";
 // import {FormEvent, FormEventHandler, useEffect, useRef, useState} from "react";
 // import {MathfieldElement} from "mathlive";
 // import {BoxedExpression, ComputeEngine} from "@cortex-js/compute-engine";
-// import {MathfieldElement} from "@/mathlive/mathlive";
+import {MathfieldElement} from "@/mathlive/mathlive";
 
 // declare global {
 //     namespace JSX {
@@ -17,8 +17,8 @@ import {ComputeEngine} from "@/cortex-js/compute-engine/compute-engine";
 //     }
 // }
 export default function Home() {
-    // const ce = MathfieldElement.computeEngine;
-    const ce = new ComputeEngine()
+    const ce = MathfieldElement.computeEngine;
+    // const ce = new ComputeEngine()
     // if(ce) {
     //     ce.pushScope()
     //     ce.declare("P", "Predicates")
