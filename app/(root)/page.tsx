@@ -1,10 +1,53 @@
+'use client';
+
 import Image from 'next/image'
 import {Button} from "@/components/ui/button";
+import "mathlive";
+import "@cortex-js/compute-engine"
+import {FormEvent, FormEventHandler, useEffect, useRef, useState} from "react";
+import {MathfieldElement} from "mathlive";
+import {BoxedExpression} from "@cortex-js/compute-engine";
 
 export default function Home() {
-  return (
-      <main>
-        <Button className={"px-10"}>Hello</Button>
-      </main>
-  )
+    const ce = MathfieldElement.computeEngine;
+    if(ce) {
+        ce.pushScope()
+        ce.declare("P", "Predicates")
+        ce.declare("Q", "Predicates")
+        ce.declare("x", "Booleans")
+        ce.latexDictionary =
+            [
+                ...ce.latexDictionary,
+                {
+                    latexTrigger: '\\forall',
+                    kind: 'function',
+                    parse: (parser) => {
+                        return [
+                            "ForAll",
+                            parser.parseToken() ?? ["Error", "missing"],
+                            parser.parseArguments()?.[0] ?? ["Error", "missing"],
+                        ];
+                    },
+                },
+                {
+                    latexTrigger: '\\exists',
+                    kind: 'function',
+                    parse: (parser) => {
+                        return [
+                            "Exists",
+                            parser.parseToken() ?? ["Error", "missing"],
+                            parser.parseArguments()?.[0] ?? ["Error", "missing"],
+                        ];
+                    },
+                },
+            ];
+    }
+
+    return (
+        <main>
+            <section className={"bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10"}>
+
+            </section>
+        </main>
+    )
 }
