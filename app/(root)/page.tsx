@@ -3,54 +3,54 @@
 import Image from 'next/image'
 import {Button} from "@/components/ui/button";
 // import "mathlive";
-import "@cortex-js/compute-engine"
-import {FormEvent, FormEventHandler, useEffect, useRef, useState} from "react";
+import {ComputeEngine} from "@/cortex-js/compute-engine/compute-engine";
+// import {FormEvent, FormEventHandler, useEffect, useRef, useState} from "react";
 // import {MathfieldElement} from "mathlive";
-import {BoxedExpression, ComputeEngine} from "@cortex-js/compute-engine";
-import {MathfieldElement} from "mathlive";
+// import {BoxedExpression, ComputeEngine} from "@cortex-js/compute-engine";
+// import {MathfieldElement} from "@/mathlive/mathlive";
 
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'math-field': React.DetailedHTMLProps<React.HTMLAttributes<MathfieldElement>, MathfieldElement>;
-        }
-    }
-}
+// declare global {
+//     namespace JSX {
+//         interface IntrinsicElements {
+//       np      'math-field': React.DetailedHTMLProps<React.HTMLAttributes<MathfieldElement>, MathfieldElement>;
+//         }
+//     }
+// }
 export default function Home() {
     // const ce = MathfieldElement.computeEngine;
     const ce = new ComputeEngine()
-    if(ce) {
-        ce.pushScope()
-        ce.declare("P", "Predicates")
-        ce.declare("Q", "Predicates")
-        ce.declare("x", "Booleans")
-        ce.latexDictionary =
-            [
-                ...ce.latexDictionary,
-                {
-                    latexTrigger: '\\forall',
-                    kind: 'function',
-                    parse: (parser) => {
-                        return [
-                            "ForAll",
-                            parser.parseToken() ?? ["Error", "missing"],
-                            parser.parseArguments()?.[0] ?? ["Error", "missing"],
-                        ];
-                    },
-                },
-                {
-                    latexTrigger: '\\exists',
-                    kind: 'function',
-                    parse: (parser) => {
-                        return [
-                            "Exists",
-                            parser.parseToken() ?? ["Error", "missing"],
-                            parser.parseArguments()?.[0] ?? ["Error", "missing"],
-                        ];
-                    },
-                },
-            ];
-    }
+    // if(ce) {
+    //     ce.pushScope()
+    //     ce.declare("P", "Predicates")
+    //     ce.declare("Q", "Predicates")
+    //     ce.declare("x", "Booleans")
+    //     ce.latexDictionary =
+    //         [
+    //             ...ce.latexDictionary,
+    //             {
+    //                 latexTrigger: '\\forall',
+    //                 kind: 'function',
+    //                 parse: (parser) => {
+    //                     return [
+    //                         "ForAll",
+    //                         parser.parseToken() ?? ["Error", "missing"],
+    //                         parser.parseArguments()?.[0] ?? ["Error", "missing"],
+    //                     ];
+    //                 },
+    //             },
+    //             {
+    //                 latexTrigger: '\\exists',
+    //                 kind: 'function',
+    //                 parse: (parser) => {
+    //                     return [
+    //                         "Exists",
+    //                         parser.parseToken() ?? ["Error", "missing"],
+    //                         parser.parseArguments()?.[0] ?? ["Error", "missing"],
+    //                     ];
+    //                 },
+    //             },
+    //         ];
+    // }
 
     return (
         <main>
