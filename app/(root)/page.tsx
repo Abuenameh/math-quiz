@@ -2,14 +2,23 @@
 
 import Image from 'next/image'
 import {Button} from "@/components/ui/button";
-import "mathlive";
+// import "mathlive";
 import "@cortex-js/compute-engine"
 import {FormEvent, FormEventHandler, useEffect, useRef, useState} from "react";
+// import {MathfieldElement} from "mathlive";
+import {BoxedExpression, ComputeEngine} from "@cortex-js/compute-engine";
 import {MathfieldElement} from "mathlive";
-import {BoxedExpression} from "@cortex-js/compute-engine";
 
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'math-field': React.DetailedHTMLProps<React.HTMLAttributes<MathfieldElement>, MathfieldElement>;
+        }
+    }
+}
 export default function Home() {
-    const ce = MathfieldElement.computeEngine;
+    // const ce = MathfieldElement.computeEngine;
+    const ce = new ComputeEngine()
     if(ce) {
         ce.pushScope()
         ce.declare("P", "Predicates")
