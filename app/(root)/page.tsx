@@ -1,24 +1,25 @@
-'use client';
-
 import Image from 'next/image'
 import {Button} from "@/components/ui/button";
 // import "mathlive";
-import {ComputeEngine} from "@/cortex-js/compute-engine/compute-engine";
+// import "@cortex-js/compute-engine";
+// import {ComputeEngine} from "@cortex-js/compute-engine";
 // import {FormEvent, FormEventHandler, useEffect, useRef, useState} from "react";
 // import {MathfieldElement} from "mathlive";
 // import {BoxedExpression, ComputeEngine} from "@cortex-js/compute-engine";
-import {MathfieldElement} from "@/mathlive/mathlive";
+// import {MathfieldElement} from "@/mathlive/mathlive";
 
 // declare global {
 //     namespace JSX {
 //         interface IntrinsicElements {
-//       np      'math-field': React.DetailedHTMLProps<React.HTMLAttributes<MathfieldElement>, MathfieldElement>;
+//             'math-field': React.DetailedHTMLProps<React.HTMLAttributes<MathfieldElement>, MathfieldElement>;
 //         }
 //     }
 // }
 export default function Home() {
-    const ce = MathfieldElement.computeEngine;
+    // console.log(new ComputeEngine().parse("a"))
+    // const ce = MathfieldElement.computeEngine;
     // const ce = new ComputeEngine()
+    // console.log(ce)
     // if(ce) {
     //     ce.pushScope()
     //     ce.declare("P", "Predicates")
@@ -55,7 +56,7 @@ export default function Home() {
     return (
         <main>
             <section className={"bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10"}>
-
+{/*<math-field></math-field>*/}
             </section>
         </main>
     )
