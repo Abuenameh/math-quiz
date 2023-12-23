@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@abuenameh/compute-engine": "^0.22.1",
+    "@abuenameh/mathlive": "^0.98.4",
     "@clerk/nextjs": "^4.28.1",
-    "@cortex-js/compute-engine": "^0.22.0",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
@@ -19,7 +20,6 @@
     "complex.js": "^2.1.1",
     "decimal.js": "^10.4.3",
     "lucide-react": "^0.299.0",
-    "mathlive": "^0.98.4",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",
     "next": "14.0.4",

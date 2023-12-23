@@ -7,8 +7,9 @@ import {Button} from "@/components/ui/button";
 import {NavItems} from "@/components/shared/NavItems";
 import {MobileNav} from "@/components/shared/MobileNav";
 
-import "@cortex-js/compute-engine";
-import {MathfieldElement} from "mathlive";
+import "@abuenameh/compute-engine";
+import {MathfieldElement} from "@abuenameh/mathlive";
+import {ComputeEngine} from "@abuenameh/compute-engine";
 declare global {
     namespace JSX {
         interface IntrinsicElements {
